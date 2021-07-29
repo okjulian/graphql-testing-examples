@@ -1,0 +1,53 @@
+{
+  "name": "query-generator",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Julian",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "migrate": "prisma migrate dev",
+    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+    "generate:prisma": "prisma generate",
+    "generate:nexus": "ts-node --transpile-only src/schema",
+    "studio": "prisma studio",
+    "unit": "jest tests/unit",
+    "integration": "jest tests/integration",
+    "e2e": "jest -c tests/end-to-end/jest.config.js tests/end-to-end",
+    "clear-test-dbs": "rm -rf prisma/test_*.db && rm -rf prisma/test_*.db-journal",
+    "test": "yarn e2e && yarn integration && yarn unit"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@prisma/client": "2.28.0",
+    "apollo-server": "^3.0.2",
+    "deepdash": "^5.3.9",
+    "deepdash-es": "^5.3.9",
+    "graphql": "^15.5.0",
+    "graphql-scalars": "^1.10.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.1.23",
+    "nexus": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^16.4.3",
+    "babel-jest": "^27.0.2",
+    "jest": "^27.0.3",
+    "msw": "^0.33.0",
+    "prettier": "^2.3.2",
+    "prisma": "2.28.0",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  }
+}

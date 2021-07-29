@@ -1,0 +1,4 @@
+node_modules
+dist
+test_*.db
+test_*.db-journal
