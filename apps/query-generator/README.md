@@ -37,3 +37,5 @@ Response
   }
 }
 ```
+
+API inspired by [http://graphqladmin.com](http://graphqladmin.com)
